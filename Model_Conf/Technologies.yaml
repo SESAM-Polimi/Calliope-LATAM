@@ -1,0 +1,322 @@
+
+# Technology Definition #
+
+# Parameters and Units:
+
+    # resource:      limitation over the power output
+    # resource_unit: Defines the unit of numbers provided in resource
+    # energy_eff:    efficiency of power plant             [-]
+    # lifetime:      Life time of the power plant          [year]
+    # energy_cap:    Capital investment of the technology  [$/kW]
+    # om_annual:     Fixed annual O&M cost                 [$/kW]
+    # om_prod:       Variable cost of production           [$/kWh]
+    # om_con:        Variable cost of fuel                 [$/kWh]
+    # energy_cap:    Investment Cost of Technology         [$/kW]
+    # lifetime:      Life time of the Technology           [years]
+    # interest_rate: Interest rate                         [-]
+   
+# Reference: Updated Least Cost Power Development Plan 2017-2035 Report
+
+techs: 
+
+# Supply and Conversion Technologies #
+############################### Open Cycle Gas Turbine ###############################
+    OCGT_pp:
+        essentials:
+            color: '#7C7C7C'
+            name: 'Open Cycle Gas Turbine'
+            parent: supply
+            carrier_out: electricity                     
+        constraints:
+            resource: inf
+            energy_eff: 0.38  
+            energy_cap_max: 600000  
+            lifetime: 25
+        costs:
+            monetary:    
+                energy_cap: 850
+                om_annual: 34
+                om_prod: 0.002
+                om_con: 0.057                 
+                interest_rate: 0.05
+               
+############################### Combined Cycle Gas Turbine ###############################
+    CCGT_pp:
+        essentials:
+            color: '#CE887A'
+            name: 'Combined Cycle Gas Turbine'
+            parent: supply
+            carrier_out: electricity                     
+        constraints:
+            resource: inf
+            energy_eff: 0.58  
+            energy_cap_max: 100000   
+            lifetime: 25
+        costs:
+            monetary:    
+                energy_cap: 1000
+                om_annual: 40
+                om_prod: 0.002
+                om_con: 0.037                 
+                interest_rate: 0.05
+
+############################### Dual Fuel Turbine ###############################
+
+    Dual_Fuel_pp:
+        essentials:
+            color: '#C9B373'
+            name: 'Dual Fuel Turbine'
+            parent: supply
+            carrier_out: electricity                     
+        constraints:
+            resource: inf
+            energy_eff: 0.34 
+            energy_cap_max: 10000
+            lifetime: 25
+        costs:
+            monetary:    
+                energy_cap: 850
+                om_annual: 34
+                om_prod: 0.002
+                om_con: 0.054                 
+                interest_rate: 0.05
+
+
+############################### ICE Power Plant ###############################
+
+    ICE_pp:
+        essentials:
+            color: '#C7C1E1'
+            name: 'ICE Power Plant'
+            parent: supply
+            carrier_out: electricity                     
+        constraints:
+            resource: inf
+            energy_eff: 0.40     
+            lifetime: 25
+            energy_cap_max: 600000
+            
+        costs:
+            monetary:    
+                energy_cap: 700
+                om_con: 0.050
+                om_prod: 0.003
+                om_annual: 28              
+                interest_rate: 0.05
+
+############################### Biomass Power Plant ###############################
+
+    Bio_pp:
+        essentials:
+            color: '#92D050'
+            name: 'Biomass Power Plant'
+            parent: supply                 
+            carrier_out: electricity                    
+        constraints:
+            energy_eff: 0.25                       
+            resource: inf                                                 
+            lifetime: 25
+        costs:
+            monetary:  
+                energy_cap: 3000
+                om_annual: 100                
+                om_prod: 0.003                    
+                om_con: 0.03                     
+                interest_rate: 0.05
+
+############################### Small Hydro Power Plant ###############################
+
+    Small_hydro_pp:
+        essentials:
+            color: '#85DFFF'
+            name: 'Small Hydro Power Plant'
+            parent: supply                 
+            carrier_out: electricity                    
+        constraints:
+            energy_eff: 1.0                                         
+            lifetime: 25 
+            energy_cap_max: 40000
+            energy_cap_max_systemwide: 1200000                 
+        costs:
+            monetary:  
+                energy_cap: 2280
+                om_annual: 60                              
+                interest_rate: 0.05
+
+
+############################### Large Hydro Power Plant ###############################
+
+    Large_hydro_pp:
+        essentials:
+            color: '#00B0F0'
+            name: 'Large Hydro Power Plant'
+            parent: supply                 
+            carrier_out: electricity                    
+        constraints:
+            energy_eff: 1.0                                            
+            lifetime: 30 
+            energy_cap_max: 35000
+            energy_cap_max_systemwide: 500000                                 
+        costs:
+            monetary:  
+                energy_cap: 2030
+                om_annual: 45                                  
+                interest_rate: 0.05
+
+############################### Wind Power Plant ###############################
+
+    Wind_pp:
+        essentials:
+            color: '#6BC9BD'
+            name: 'Wind Power Plant'
+            parent: supply                 
+            carrier_out: electricity                    
+        constraints:
+            energy_eff: 1.0                                       
+            lifetime: 20                                  
+        costs:
+            monetary:  
+                energy_cap: 1700
+                om_annual: 50                
+                om_prod: 0                   
+                om_con: 0                     
+                interest_rate: 0.05
+
+############################## Photovoltaic Power Plant 1 ###############################
+
+    Solar_pp_oruro:
+        essentials:
+            color: '#FFC000'
+            name: 'Photovoltaic Power Plant - Oruro'
+            parent: supply                 
+            carrier_out: electricity                    
+        constraints:
+            energy_eff: 1                                          
+            lifetime: 25                                
+        costs:
+            monetary:  
+                energy_cap: 1250
+                om_annual: 20                
+                om_prod: 0                   
+                om_con: 0                     
+                interest_rate: 0.05
+
+############################## Photovoltaic Power Plant 2 ###############################
+
+    Solar_pp_yunchara:
+        essentials:
+            color: '#FFDF7E'
+            name: 'Photovoltaic Power Plant - Yunchara'
+            parent: supply                 
+            carrier_out: electricity                    
+        constraints:
+            energy_eff: 1                                            
+            lifetime: 25     
+        costs:
+            monetary:  
+                energy_cap: 1250
+                om_annual: 20                
+                om_prod: 0                   
+                om_con: 0                     
+                interest_rate: 0.05
+
+############################## Photovoltaic Power Plant 3 ###############################
+
+    Solar_pp_uyuni:
+        essentials:
+            color: '#FFD555'
+            name: 'Photovoltaic Power Plant - Uyuni'
+            parent: supply                 
+            carrier_out: electricity                    
+        constraints:
+            energy_eff: 1                                            
+            lifetime: 25                                 
+        costs:
+            monetary:  
+                energy_cap: 1250
+                om_annual: 20                
+                om_prod: 0                   
+                om_con: 0                     
+                interest_rate: 0.05
+
+############################## Nuclear Power Plant ###############################
+
+    Nuclear_pp:
+        essentials:
+            color: '#F4B183'
+            name: 'Nuclear Power Plant'
+            parent: supply                 
+            carrier_out: electricity                    
+        constraints:
+            resource: inf
+            energy_eff: 0.32                                        
+            lifetime: 60  
+            energy_cap_equals: 340000 #KWe
+            energy_cap_min_use: 0.2
+        costs:
+            monetary:  
+                energy_cap: 6191            #US EIA Capital Cost
+                om_annual: 95                
+                om_prod: 0.003              #O&M variable    
+                om_con: 0.01                #Cost of fuel [$/kWh]                    
+                interest_rate: 0.05
+
+# Consuming Technologies #
+
+#################################### Electricity ####################################
+    demand_power:
+         essentials:
+            name: 'Power demand'
+            color: '#072486'
+            parent: demand
+            carrier: electricity
+
+
+############################# TRANSMISSION TECHS ##############################
+
+    AC_transmission_69:
+        essentials:
+            name: 'AC power transmission at 69 kV'
+            color: '#F50505'
+            parent: transmission
+            carrier: electricity
+        constraints:
+            energy_eff: 0.934
+            lifetime: 25
+        costs:
+            monetary:
+                interest_rate: 0.05
+                energy_cap: 0
+                om_prod: 0.002
+                
+    AC_transmission_115:
+        essentials:
+            name: 'AC power transmission at 115 kV'
+            color: '#050CF5'
+            parent: transmission
+            carrier: electricity
+        constraints:
+            energy_eff: 0.959
+            lifetime: 25
+        costs:
+            monetary:
+                interest_rate: 0.05
+                energy_cap: 0
+                om_prod: 0.002
+
+    AC_transmission_230:
+        essentials:
+            name: 'AC power transmission at 230 kV'
+            color: '#28F505'
+            parent: transmission
+            carrier: electricity
+        constraints:
+            energy_eff: 0.985
+            lifetime: 25
+        costs:
+            monetary:
+                interest_rate: 0.05
+                energy_cap: 0
+                om_prod: 0.002
+    
+                

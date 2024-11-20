@@ -1,0 +1,253 @@
+# Location Definition #
+
+# In this model, Bolivia is divided into 8 different regions which are:
+
+        #1. Cochabamba Region: COCR
+        #2. La Paz Region: LPZR 
+        #3. Oruro Region: ORUR
+        #4. Potosi Region: POTR
+        #5. Beni Region: BENR
+        #6. Santa Cruz Region: SCZR
+        #7. Chuquisaca Region: CHUR
+        #8. Tarija Region: TAJR
+
+# Parameters:
+
+    # lat: Latitude of the location
+    # lon: Longtitude of the location 
+    # energy_cap_equals: Real Capacity [kW]
+
+# Defining the locations 
+
+locations:
+
+################################### BENR - BENI REGION ###############################   
+
+    BENR:
+        coordinates: #coordinates of Trinidad
+            lat: -14.834          
+            lon: -64.900
+                   
+        # Available Technologies
+        techs:   
+        
+            ICE_pp:
+                constraints:
+                    energy_cap_equals: 36500.000
+
+            demand_power:
+                constraints:
+                    resource: file=demand2021.csv:BENR  
+
+
+################################### LPZR - LA PAZ REGION #############################   
+
+    LPZR:
+        coordinates: #coordinates of La Paz
+            lat: -16.489            
+            lon: -68.119 
+                        
+        # Available Technologies
+        techs:
+            
+            OCGT_pp:
+                constraints:
+                    energy_cap_equals: 71600.000
+                    
+            ICE_pp:
+                constraints:
+                    energy_cap_equals: 2400.000
+                    
+            Bio_pp:
+                constraints:
+                    energy_cap_equals: 5000.000
+            
+            Large_hydro_pp:
+                constraints: 
+                    resource: file=Hydro.csv:LPZRlarge
+                    
+                    
+            Small_hydro_pp:
+                constraints:
+                    resource: file=Hydro.csv:LPZRsmall
+                   
+                         
+            demand_power:
+                constraints:
+                    resource: file=demand2021.csv:LPZR
+
+
+################################### COCR - COCHAMBABA REGION  #########################        
+
+    COCR:
+        coordinates: #coordinates of Cochabamba
+            lat: -17.351            
+            lon: -66.169 
+                        
+        # Available Technologies
+        techs:
+        
+            OCGT_pp:
+                constraints:
+                    energy_cap_equals: 736400.000
+            
+            CCGT_pp:
+                constraints:
+                    energy_cap_equals: 89000.000
+            
+            Large_hydro_pp:
+                constraints:
+                    resource: file=Hydro.csv:COCRsmall
+                   
+                    
+            Small_hydro_pp:
+                constraints: 
+                    resource: file=Hydro.csv:COCRsmall
+                    
+            
+            Wind_pp:
+                constraints:
+                     resource: file=Wind.csv:COCR 
+                    
+                         
+            demand_power:
+                constraints:
+                    resource: file=demand2021.csv:COCR
+                    
+
+################################### SCZR - SANTA CRUZ REGION #########################                                                                                                                                               
+    SCZR:
+        coordinates: #coordinates of Santa Cruz de la Sierra 
+            lat: -17.736             
+            lon: -63.158 
+                        
+        # Available Technologies
+        techs:
+        
+            OCGT_pp:
+                constraints:
+                    energy_cap_max: 735999.999
+            
+            CCGT_pp:
+                constraints:
+                    energy_cap_equals: 233500.001
+            
+            Bio_pp:
+                constraints:
+                    energy_cap_equals: 50250.000
+
+            Nuclear_pp:
+                constraints:
+                    energy_cap_equals: 340000.000
+                         
+            demand_power:
+                constraints:
+                    resource: file=demand2021.csv:SCZR
+
+################################### ORUR - ORURO REGION  ##############################  
+
+    ORUR:
+        coordinates: #coordinates of Oruro
+            lat: -17.911             
+            lon: -67.105 
+                        
+        # Available Technologies
+
+        techs:
+            
+            Solar_pp_oruro:
+                constraints: 
+                    resource: file=Solar.csv:ORUR            
+                         
+            demand_power:
+                constraints:
+                    resource: file=demand2021.csv:ORUR
+
+################################### POTR - POTOSI' REGION #############################      
+
+    POTR:
+        coordinates: #coordinates of Potosi
+            lat: -19.538             
+            lon: -65.755 
+                        
+        # Available Technologies
+        techs:
+        
+            OCGT_pp:
+                constraints:
+                    energy_cap_equals: 15500.000
+            
+            Large_hydro_pp:
+                constraints: 
+                    resource: file=Hydro.csv:POTRlarge
+                    
+            Small_hydro_pp:
+                constraints: 
+                    resource: file=Hydro.csv:POTRsmall  
+                   
+            
+            Solar_pp_uyuni:
+                constraints:
+                    resource: file=Solar.csv:POTR    
+                         
+            demand_power:
+                constraints:
+                    resource: file=demand2021.csv:POTR      
+
+
+################################### CHUR - CHUQUISACA REGION #########################  
+
+    CHUR:
+        coordinates: #coordinates of Sucre
+            lat: -19.048            
+            lon: -65.260
+                        
+        # Available Technologies
+        techs:
+            
+            OCGT_pp:
+                constraints:
+                    energy_cap_equals: 35300.000
+                    
+            Dual_Fuel_pp:
+                constraints:
+                    energy_cap_equals: 9000.000
+                         
+            demand_power:
+                constraints:
+                    resource: file=demand2021.csv:CHUR
+
+                    
+################################### TAJR - TARIJA REGION #############################    
+
+    TAJR:
+        coordinates: #coordinates of Tarija
+            lat: -21.463             
+            lon: -64.724
+                        
+        # Available Technologies
+        techs:
+        
+            OCGT_pp:
+                constraints:
+                    energy_cap_equals: 338100.000
+            
+            CCGT_pp:
+                constraints:
+                    energy_cap_equals: 89000.000
+            
+            Small_hydro_pp:
+                constraints:
+                    resource: file=Hydro.csv:TAJRsmall  
+                    
+            Solar_pp_yunchara:
+                constraints:
+                    resource: file=Solar.csv:TAJR   
+                                  
+            demand_power:
+                constraints:
+                    resource: file=demand2021.csv:TAJR
+                    
+
+
+                       

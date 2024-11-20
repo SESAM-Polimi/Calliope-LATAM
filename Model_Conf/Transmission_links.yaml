@@ -1,0 +1,87 @@
+
+
+
+# Transmission Grid and the connections Definition #
+
+# Parameters and Units:
+
+    # energy_cap_equals:  Capacity of Grid          [kW]
+    # distance:           Distance Between 2 Nodes  [Hundreds of km]  
+
+
+links:
+                       
+
+# Connection of nodes                             
+
+    BENR,LPZR: 
+        techs:
+            AC_transmission_115: #Yucumo-Caranavi + Yucumo-San Buenaventura
+                constraints:
+                    energy_cap_equals: 64410
+                distance: 22.250                  
+                                
+
+    LPZR,ORUR: 
+        techs:
+            AC_transmission_230: #Mazocruz - Vinto
+                constraints:
+                    energy_cap_equals: 130150
+                distance: 19.357
+    
+
+    LPZR,COCR: 
+        techs: 
+            AC_transmission_230: #Palca - Santivanez x2
+                constraints:
+                    energy_cap_equals: 311790
+                distance: 24.400
+              
+    COCR,ORUR: 
+        techs:
+            AC_transmission_115: #Pagador-Santivanez (230) + Caihuasi-Vinto + Caihuasi-Jeruyo (115)
+                constraints:
+                    energy_cap_equals: 367650 #219450 + 148200
+                distance: 19.021 #11.504 + 7.517
+                
+    COCR,POTR: 
+        techs:
+            AC_transmission_115: #Irpa Irpa - Sacaca
+                constraints:
+                    energy_cap_equals: 74100
+                distance: 4.323
+    
+    COCR,CHUR: 
+        techs:
+            AC_transmission_230: #Santivanez-Sucre
+                constraints:
+                    energy_cap_equals: 142500
+                distance: 24.600
+                
+    COCR,SCZR: 
+        techs:
+            AC_transmission_230: #Carrasco-Yapacani + Carrasco-Arboleda
+                constraints:
+                    energy_cap_equals: 272650
+                distance: 17.675
+                
+    POTR,ORUR:
+        techs:
+            AC_transmission_115: #Catavi-Sacaca + Catavi-Ocuri
+                constraints:
+                    energy_cap_equals: 148200
+                distance: 14.119
+                
+    POTR,CHUR: 
+        techs:
+            AC_transmission_69: #Sucre-Punutuma (230) + Sucre-La Plata (115) + Aranjuez-Mariaca (69)
+                constraints:
+                    energy_cap_equals: 202350 #142500 + 38000 + 21850
+                distance: 30.807 #17.700 + 8.822 + 4.285
+    
+    POTR,TAJR:
+        techs:
+            AC_transmission_230: #LasCarreras - Tarija
+                constraints:
+                    energy_cap_equals: 300010
+                distance: 7.424
